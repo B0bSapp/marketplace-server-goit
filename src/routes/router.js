@@ -8,20 +8,20 @@ const url = require('url');
 const router = {
     availableRoutes: [
         {
-            regExp: /^\/products$/,
+            path: /^\/products\/?$/,
             applicableMethods: {
                 GET: getAllProducts,
                 POST: createProduct
             },
         },
         {
-            regExp: /^\/products\/\d+$/,
+            path: /^\/products\/\d+$/,
             applicableMethods: {
                 GET: getProduct,
             },
         },
         {
-            regExp: /^\/users$/,
+            path: /^\/users\/?$/,
             applicableMethods: {
                 POST: createUser,
             },
@@ -30,7 +30,7 @@ const router = {
     getRoutingFunction(request) {
         const incomingUrl = url.parse(request.url);
         const incomingMethod = request.method;
-        const applicableRoutes = this.availableRoutes.find(route => route.regExp.test(incomingUrl.pathname));
+        const applicableRoutes = this.availableRoutes.find(route => route.path.test(incomingUrl.pathname));
         if (!applicableRoutes) {
             return defaultRoute;
         }
