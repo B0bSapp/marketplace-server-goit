@@ -4,7 +4,8 @@
   "description": "student project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect index.js",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/B0bSapp/marketplace-server-goit#readme",
   "dependencies": {
-    "npm": "^6.4.1"
+    "http": "0.0.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4",
+    "npm": "^6.4.1",
+    "url": "^0.11.0"
   }
 }
