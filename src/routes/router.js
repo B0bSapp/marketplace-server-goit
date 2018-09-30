@@ -15,7 +15,7 @@ const router = {
             },
         },
         {
-            path: /^\/products\/\d+$/,
+            path: /^\/products\/\d+\/?$/,
             applicableMethods: {
                 GET: getProduct,
             },
