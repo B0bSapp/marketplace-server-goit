@@ -1,7 +1,9 @@
-const getProduct = require('./products/get-product');
-const getAllProducts = require('./products/get-all-products');
-const createProduct = require('./products/create-product')
-const createUser = require('./users/create-user');
+const getProduct = require('./products/get_product');
+const getAllProducts = require('./products/get_all_products');
+const createProduct = require('./products/create_product')
+const createUser = require('./users/create_user');
+const createCategory = require('./categories/create_category')
+const loadImage = require('./images/load_image')
 const defaultRoute = require('./default');
 const url = require('url');
 
@@ -25,6 +27,18 @@ const router = {
             applicableMethods: {
                 POST: createUser,
             },
+        },
+        {
+            path: /^\/categories\/?$/,
+            applicableMethods: {
+                POST: createCategory,
+            }
+        },
+        {
+            path: /^\/images\/?$/,
+            applicableMethods: {
+                POST: loadImage,
+            }
         }
     ],
     getRoutingFunction(request) {

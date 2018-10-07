@@ -1,7 +1,7 @@
 const fs = require('fs');
 const getAllProductsFile = require('./product_utils');
 
-const getAllProducts = (request, response) => {
+const get_all_products = (request, response) => {
     const allProductFile = getAllProductsFile();
     response.writeHead(200, {
         'Content-Type': 'application/json',
@@ -10,4 +10,4 @@ const getAllProducts = (request, response) => {
     const readStream = fs.createReadStream(allProductFile.filePath);
     readStream.pipe(response);
 };
-module.exports = getAllProducts;
+module.exports = get_all_products;

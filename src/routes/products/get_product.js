@@ -2,7 +2,7 @@ const getAllProductsFile = require('./product_utils');
 const url = require('url')
 const fs = require('fs');
 
-const getProduct = (request, response) => {
+const get_product = (request, response) => {
     const pathName = url.parse(request.url).pathname;
     const productId = pathName.split("/")[2];
     const allProductFile = getAllProductsFile();
@@ -23,4 +23,4 @@ const getProduct = (request, response) => {
     }
 
 };
-module.exports = getProduct;
+module.exports = get_product;
