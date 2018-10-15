@@ -14,9 +14,9 @@ const validationProfile = {
     currency: (incomingValue) => {
         return (typeof incomingValue) !== 'string'
     },
-    creatorId: (incomingValue) => {
-        return (typeof incomingValue) !== 'number'
-    },
+    // creatorId: (incomingValue) => {
+    //     return (typeof incomingValue) !== 'number'
+    // },
     categories: (incomingValue) => {
         return !Array.isArray(incomingValue)
     }

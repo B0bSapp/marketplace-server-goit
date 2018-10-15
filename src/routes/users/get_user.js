@@ -1,19 +1,20 @@
-const Product = require('../../db/schema/product')
+const User = require('../../db/schema/user')
 
-const get_product = (request, response) => {
-  Product.findById(request.params.id).then(product => {
-    if (product) {
-      response.json(product)
+const get_users = (request, response) => {
+  User.findById(request.params.id).then(users => {
+    if (users) {
+      response.json(users)
     }
     else {
       response.status(404);
       response.json(
           {message: `Requested entity ${request.params.id} was not found`});
     }
+
   }).catch(err => {
     response.status(500);
     response.json({error: err})
   });
+}
 
-};
-module.exports = get_product;
+module.exports = get_users;
