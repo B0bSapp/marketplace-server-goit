@@ -1,14 +1,23 @@
+const express = require('express');
+const bodyParser = require('body-parser')
 const morgan = require('morgan');
-const http = require('http');
 const router = require('./routes/router');
-
 const logger = morgan('combined');
+
+app = express();
 const startServer = port => {
-    const server = http.createServer((request, response) => {
-        const routerFunction = router.getRoutingFunction(request);
-        logger(request, response, () => routerFunction(request, response))
-    });
-    server.listen(port);
+  app.use(bodyParser.urlencoded({extended: false})).use(bodyParser.json()).use(
+      morgan('dev')).use('/', router).use(errorHandler);
+  app.listen(port);
 };
+
+const errorHandler =
+    (err, request, response) => {
+        console.log('this is error ', response);
+        response.status(500).send({
+        type: 'Internal server error',
+        cause: err
+      })
+    }
 
 module.exports = startServer;

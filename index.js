@@ -1,4 +1,6 @@
 const startServer = require('./src/server');
-const { port } = require('./config');
+const connectDb = require('./src/db/connect')
+const {port, dbUrl} = require('./config');
 
+connectDb(dbUrl);
 startServer(port);
